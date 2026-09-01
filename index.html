@@ -78,6 +78,7 @@
       color: var(--accent-rose);
     }
 
+    /* NAV COM BOTÕES ESTILIZADOS */
     nav {
       position: sticky;
       top: 0;
@@ -91,27 +92,32 @@
     nav ul {
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 12px;
       list-style: none;
       flex-wrap: wrap;
     }
 
-    nav a {
-      color: var(--text-light);
-      text-decoration: none;
+    .nav-btn {
+      background: var(--bg-card-hover);
+      color: var(--primary-gold);
+      border: 1px solid var(--border-gold);
+      font-family: 'Montserrat', sans-serif;
       font-size: 0.85rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
-      padding: 6px 12px;
+      padding: 8px 16px;
       border-radius: 20px;
-      transition: all 0.3s;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
 
-    nav a:hover {
-      color: var(--primary-gold);
-      background: rgba(230, 198, 105, 0.1);
-      box-shadow: 0 0 10px rgba(230, 198, 105, 0.2);
+    .nav-btn:hover {
+      background: var(--primary-gold);
+      color: var(--bg-dark);
+      box-shadow: 0 0 12px rgba(230, 198, 105, 0.5);
+      transform: translateY(-2px);
     }
 
     section {
@@ -322,96 +328,6 @@
       margin-bottom: 12px;
     }
 
-    /* BOTOES EM FORMATO DE FLOR */
-    .flower-buttons-container {
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      flex-wrap: wrap;
-      margin: 20px 0;
-      padding: 25px;
-      background: rgba(0,0,0,0.25);
-      border-radius: 12px;
-      border: 1px dashed rgba(216, 105, 151, 0.4);
-    }
-
-    .flower-btn-1 {
-      position: relative;
-      width: 100px;
-      height: 100px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      outline: none;
-      transition: transform 0.3s ease;
-    }
-
-    .flower-btn-1:hover {
-      transform: scale(1.12) rotate(10deg);
-    }
-
-    .flower-btn-1 .center {
-      position: absolute;
-      top: 30px;
-      left: 30px;
-      width: 40px;
-      height: 40px;
-      background-color: var(--primary-gold);
-      border-radius: 50%;
-      z-index: 2;
-      box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
-    }
-
-    .flower-btn-1 .petal {
-      position: absolute;
-      width: 35px;
-      height: 35px;
-      background-color: var(--accent-rose);
-      border-radius: 50%;
-      z-index: 1;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .flower-btn-1 .p1 { top: 0px; left: 32px; }
-    .flower-btn-1 .p2 { top: 12px; left: 60px; }
-    .flower-btn-1 .p3 { top: 32px; left: 72px; }
-    .flower-btn-1 .p4 { top: 58px; left: 60px; }
-    .flower-btn-1 .p5 { top: 68px; left: 32px; }
-    .flower-btn-1 .p6 { top: 58px; left: 5px; }
-    .flower-btn-1 .p7 { top: 32px; left: -5px; }
-    .flower-btn-1 .p8 { top: 12px; left: 5px; }
-
-    .flower-btn-2 {
-      position: relative;
-      width: 110px;
-      height: 110px;
-      background-color: var(--accent-rose);
-      border: none;
-      border-radius: 50% 10% 50% 10%;
-      cursor: pointer;
-      color: white;
-      font-weight: bold;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 15px rgba(216, 105, 151, 0.4);
-      transition: all 0.4s ease;
-      transform: rotate(45deg);
-    }
-
-    .flower-btn-2 span {
-      transform: rotate(-45deg);
-    }
-
-    .flower-btn-2:hover {
-      border-radius: 50%;
-      background-color: var(--primary-gold);
-      color: var(--bg-dark);
-      transform: rotate(90deg) scale(1.1);
-      box-shadow: 0 6px 20px rgba(230, 198, 105, 0.6);
-    }
-
     .quote-card {
       background: linear-gradient(145deg, #1d0f1b, #2b1427);
       padding: 30px;
@@ -554,16 +470,16 @@
     <p class="site-subtitle">A Biografia da Autora & Análise de "Memórias de Martha"</p>
   </header>
 
+  <!-- NAVEGAÇÃO COM BOTÕES -->
   <nav>
     <ul>
-      <li><a href="#biografia">Biografia</a></li>
-      <li><a href="#machismo">Machismo & ABL</a></li>
-      <li><a href="#contexto">Contexto</a></li>
-      <li><a href="#linha-tempo">Linha do Tempo</a></li>
-      <li><a href="#personagens">Personagens</a></li>
-      <li><a href="#flores">Botões Flor</a></li>
-      <li><a href="#citacoes">Citações</a></li>
-      <li><a href="#quiz">Quiz</a></li>
+      <li><button class="nav-btn" onclick="scrollToSection('biografia')">Biografia</button></li>
+      <li><button class="nav-btn" onclick="scrollToSection('machismo')">Machismo & ABL</button></li>
+      <li><button class="nav-btn" onclick="scrollToSection('contexto')">Contexto</button></li>
+      <li><button class="nav-btn" onclick="scrollToSection('linha-tempo')">Linha do Tempo</button></li>
+      <li><button class="nav-btn" onclick="scrollToSection('personagens')">Personagens</button></li>
+      <li><button class="nav-btn" onclick="scrollToSection('citacoes')">Citações</button></li>
+      <li><button class="nav-btn" onclick="scrollToSection('quiz')">Quiz</button></li>
     </ul>
   </nav>
 
@@ -682,34 +598,6 @@
       <div class="char-display" id="char-display"></div>
     </section>
 
-    <!-- BOTOES EM FORMATO DE FLOR -->
-    <section id="flores">
-      <h2>🌸 Botões em Formato de Flor (Interativos)</h2>
-      <p style="margin-bottom: 15px; color: var(--text-muted);">
-        Botões estilizados em formato de flor criados puramente com CSS e HTML para interagir no seu projeto:
-      </p>
-      
-      <div class="flower-buttons-container">
-        <!-- Margarida -->
-        <button class="flower-btn-1" onclick="alert('🌸 Você colheu a Margarida literária!')" title="Clique na Margarida">
-          <div class="center"></div>
-          <div class="petal p1"></div>
-          <div class="petal p2"></div>
-          <div class="petal p3"></div>
-          <div class="petal p4"></div>
-          <div class="petal p5"></div>
-          <div class="petal p6"></div>
-          <div class="petal p7"></div>
-          <div class="petal p8"></div>
-        </button>
-
-        <!-- Flor Estilizada -->
-        <button class="flower-btn-2" onclick="alert('🌺 Você clicou na Flor Estilizada!')">
-          <span>Florir</span>
-        </button>
-      </div>
-    </section>
-
     <section id="citacoes">
       <h2>💬 Citações Marcantes</h2>
       <div class="quote-card">
@@ -744,6 +632,11 @@
   </footer>
 
   <script>
+    // Função para rolar até a seção desejada através dos botões do topo
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
     const canvas = document.getElementById('sparkles-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -922,7 +815,7 @@
         currentQ++;
         if (currentQ < quizData.length) renderQuestion();
         else showResults();
-      }, 1500);
+      }, 1500); // Ajustado para 1.5s para ser mais dinâmico
     }
 
     function showResults() {
