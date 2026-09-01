@@ -14,7 +14,7 @@
     }
 
     body {
-      font-family: 'Georgia', serif;
+      font-family: Arial, sans-serif;
       background-color: var(--bg);
       color: var(--text);
       margin: 0;
@@ -24,7 +24,7 @@
 
     header {
       text-align: center;
-      padding: 40px 20px;
+      padding: 30px 20px;
       background-color: var(--primary);
       color: white;
       border-radius: 8px;
@@ -34,23 +34,23 @@
     
     section {
       background: var(--card-bg);
-      margin: 30px auto;
-      padding: 25px;
+      margin: 20px auto;
+      padding: 20px;
       border-radius: 8px;
-      max-width: 800px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      max-width: 700px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     /* 1. Linha do Tempo */
     .timeline {
       display: flex;
       gap: 10px;
-      justify-content: space-between;
-      margin-bottom: 20px;
+      justify-content: center;
+      margin-bottom: 15px;
       flex-wrap: wrap;
     }
 
-    .time-btn {
+    .time-btn, .action-btn, .nav-btn {
       background: var(--secondary);
       color: white;
       border: none;
@@ -60,7 +60,7 @@
       font-weight: bold;
     }
 
-    .time-btn:hover { background: var(--primary); }
+    .time-btn:hover, .action-btn:hover { background: var(--primary); }
 
     .timeline-info {
       background: var(--bg);
@@ -69,51 +69,30 @@
       border-radius: 4px;
     }
 
-    /* 2. Carrossel de Personagens */
+    /* 2. Carrossel */
     .card-container {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 15px;
-    }
-
-    .nav-btn {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 18px;
+      justify-content: space-between;
+      gap: 10px;
     }
 
     .character-card {
       background: var(--bg);
-      padding: 20px;
+      padding: 15px;
       border-radius: 8px;
       width: 100%;
       text-align: center;
     }
 
-    /* 3. Gerador de Citações */
+    /* 3. Citações */
     .quote-box {
       font-style: italic;
-      padding: 20px;
+      padding: 15px;
       background: var(--bg);
       border-radius: 8px;
       text-align: center;
-      min-height: 60px;
-    }
-
-    .action-btn {
-      display: block;
-      margin: 15px auto 0 auto;
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
+      margin-bottom: 10px;
     }
 
     /* 4. Quiz */
@@ -140,68 +119,64 @@
     <p>Vida, Obra e Análise de <i>Memórias de Martha</i></p>
   </header>
 
+  <!-- 1. Linha do Tempo -->
   <section>
-    <h2>1. Linha do Tempo da Autora</h2>
+    <h2>1. Linha do Tempo</h2>
     <div class="timeline">
       <button class="time-btn" onclick="showTime('1862')">1862</button>
       <button class="time-btn" onclick="showTime('1889')">1889</button>
       <button class="time-btn" onclick="showTime('1897')">1897</button>
-      <button class="time-btn" onclick="showTime('1899')">1899</button>
     </div>
     <div id="timeline-text" class="timeline-info">
-      Clique em um dos anos acima para ver o fato histórico da vida de Júlia.
+      Clique nos anos para ver os acontecimentos.
     </div>
   </section>
 
+  <!-- 2. Personagens -->
   <section>
-    <h2>2. Análise dos Personagens (Memórias de Martha)</h2>
+    <h2>2. Personagens de Memórias de Martha</h2>
     <div class="card-container">
       <button class="nav-btn" onclick="prevChar()">&lt;</button>
       <div class="character-card">
         <h3 id="char-name">Martha</h3>
-        <p id="char-desc">A protagonista. Narra suas memórias de infância e juventude, retratando as dificuldades de uma família empobrecida e as restrições impostas às mulheres da época.</p>
+        <p id="char-desc">A protagonista que narra suas memórias e reflexões sobre a vida urbana e a condição feminina.</p>
       </div>
       <button class="nav-btn" onclick="nextChar()">&gt;</button>
     </div>
   </section>
 
+  <!-- 3. Citações -->
   <section>
-    <h2>3. Citações Marcantes</h2>
+    <h2>3. Citação da Autora</h2>
     <div class="quote-box" id="quote-display">
-      "Clique no botão abaixo para gerar um trecho marcante do livro."
+      "Clique no botão para carregar uma citação."
     </div>
-    <button class="action-btn" onclick="newQuote()">Nova Citação</button>
+    <button class="action-btn" onclick="newQuote()">Gerar Citação</button>
   </section>
 
+  <!-- 4. Quiz -->
   <section>
-    <h2>4. Quiz: Teste seus Conhecimentos</h2>
-    <p id="quiz-question">Qual é o tema principal abordado em <i>Memórias de Martha</i>?</p>
-    <div id="quiz-options">
-      <button class="quiz-option" onclick="checkQuiz(false)">A expansão da navegação marítima no Brasil.</button>
-      <button class="quiz-option" onclick="checkQuiz(true)">A condição feminina e as dificuldades das classes urbanas empobrecidas.</button>
-      <button class="quiz-option" onclick="checkQuiz(false)">A vida nos engenhos de açúcar do Nordeste.</button>
-    </div>
+    <h2>4. Quiz</h2>
+    <p><i>Memórias de Martha</i> aborda principalmente qual tema?</p>
+    <button class="quiz-option" onclick="checkQuiz(false)">A vida no campo e o trabalho rural.</button>
+    <button class="quiz-option" onclick="checkQuiz(true)">A condição da mulher e as dificuldades da classe média urbana.</button>
     <div id="quiz-feedback" class="quiz-feedback"></div>
   </section>
 
   <script>
-    // 1. Lógica da Linha do Tempo
     const timelineData = {
-      '1862': 'Nascimento de Júlia Lopes de Almeida no Rio de Janeiro, em 24 de setembro.',
-      '1889': 'Publicação do livro "Memórias de Martha" em folhetins na Gazeta de Notícias.',
-      '1897': 'Participou ativamente do planejamento da Academia Brasileira de Letras (ABL), mas foi excluída do grupo oficial por ser mulher.',
-      '1899': 'Publicação da obra "A Falência", um dos seus romances mais aclamados.'
+      '1862': 'Nascimento de Júlia Lopes de Almeida no Rio de Janeiro.',
+      '1889': 'Publicação de "Memórias de Martha" em formato de folhetim.',
+      '1897': 'Atuação na criação da Academia Brasileira de Letras.'
     };
 
     function showTime(year) {
       document.getElementById('timeline-text').innerText = timelineData[year];
     }
 
-    // 2. Lógica do Carrossel
     const characters = [
-      { name: "Martha", desc: "A protagonista. Narra suas memórias de infância e juventude, retratando as dificuldades de uma família empobrecida e as restrições impostas às mulheres da época." },
-      { name: "D. Maria", desc: "Mãe de Martha. Representa a resignação e a luta constante para manter a dignidade da família diante da escassez de recursos." },
-      { name: "Jorge", desc: "Figura que simboliza as relações sociais e os ideais românticos que contrastam com o realismo cru vivido por Martha." }
+      { name: "Martha", desc: "A protagonista que narra suas memórias e reflexões sobre a vida urbana e a condição feminina." },
+      { name: "D. Maria", desc: "Mãe de Martha, representando a dedicação e as dificuldades da vida familiar da época." }
     ];
     let currentChar = 0;
 
@@ -220,11 +195,9 @@
       updateChar();
     }
 
-    // 3. Lógica das Citações
     const quotes = [
-      "\"A vida das mulheres sem recursos é uma constante batalha silenciosa contra o esquecimento.\"",
-      "\"O trabalho dignifica, mas a falta de oportunidades sufoca as maiores inteligências.\"",
-      "\"Lembrar do passado não é apenas saudade, é entender as marcas do presente.\""
+      "\"A vida das mulheres sem recursos é uma constante batalha silenciosa.\"",
+      "\"Lembrar do passado é entender as marcas do presente.\""
     ];
 
     function newQuote() {
@@ -232,15 +205,14 @@
       document.getElementById('quote-display').innerText = quotes[random];
     }
 
-    // 4. Lógica do Quiz
     function checkQuiz(isCorrect) {
       const feedback = document.getElementById('quiz-feedback');
       if (isCorrect) {
         feedback.style.color = "green";
-        feedback.innerText = "Correto! O romance aborda a perspectiva urbana e a condição da mulher na sociedade da época.";
+        feedback.innerText = "Resposta Correta!";
       } else {
         feedback.style.color = "red";
-        feedback.innerText = "Incorreto. Tente novamente!";
+        feedback.innerText = "Tente novamente.";
       }
     }
   </script>
