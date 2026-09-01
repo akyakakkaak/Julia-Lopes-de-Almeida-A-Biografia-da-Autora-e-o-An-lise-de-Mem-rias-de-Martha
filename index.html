@@ -92,7 +92,7 @@
     nav ul {
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       list-style: none;
       flex-wrap: wrap;
     }
@@ -202,6 +202,21 @@
     .custom-file-btn:hover {
       background: var(--primary-gold);
       color: var(--bg-dark);
+    }
+
+    .summary-card {
+      background: var(--bg-card-hover);
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid var(--primary-gold);
+      margin-bottom: 15px;
+    }
+
+    .summary-card h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary-gold);
+      font-size: 1.25rem;
+      margin-bottom: 8px;
     }
 
     .machismo-card {
@@ -474,6 +489,7 @@
   <nav>
     <ul>
       <li><button class="nav-btn" onclick="scrollToSection('biografia')">Biografia</button></li>
+      <li><button class="nav-btn" onclick="scrollToSection('resumo')">Resumo do Livro</button></li>
       <li><button class="nav-btn" onclick="scrollToSection('machismo')">Machismo & ABL</button></li>
       <li><button class="nav-btn" onclick="scrollToSection('contexto')">Contexto</button></li>
       <li><button class="nav-btn" onclick="scrollToSection('linha-tempo')">Linha do Tempo</button></li>
@@ -511,6 +527,26 @@
             Defensora da educação feminina e da abolição, sua obra abrange romances, contos e ensaios pedagógicos fundamentais.
           </p>
         </div>
+      </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: RESUMO DO LIVRO -->
+    <section id="resumo">
+      <h2>📖 Resumo de "Memórias de Martha"</h2>
+      
+      <div class="summary-card">
+        <h3>1. A Infância no Cortiço</h3>
+        <p>A história é narrada em primeira pessoa pela própria Martha, que relembra sua infância difícil em uma habitação coletiva (cortiço) no Rio de Janeiro. Filha de uma costureira/lavadeira (Dona Marta) e de um alfaiate doente (Seu Luís), Martha cresce observando a miséria, as brigas e a dura rotina das famílias trabalhadoras da época.</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>2. O Trabalho Feminino e as Dificuldades</h3>
+        <p>Com o agravamento da doença e a morte do pai, a mãe de Martha assume sozinha o sustento do lar. A narrativa destaca com sensibilidade e realismo a jornada exaustiva das mulheres pobres que lavam e passam roupas até a exaustão para garantir o pão de cada dia e pagar o aluguel implacável do proprietário do imóvel.</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>3. Crescimento, Educação e Desfecho</h3>
+        <p>Apesar das adversidades do ambiente, Martha busca na educação e no trabalho digno uma forma de transformação. O romance retrata seu amadurecimento, a perda precoce da mãe e os dilemas morais da juventude, tornando-se um retrato psicológico e sociológico marcante da emancipação e resiliência feminina no Brasil do século XIX.</p>
       </div>
     </section>
 
@@ -632,7 +668,6 @@
   </footer>
 
   <script>
-    // Função para rolar até a seção desejada através dos botões do topo
     function scrollToSection(id) {
       document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
@@ -768,7 +803,7 @@
         explanation: "Júlia valoriza o esforço e a força moral do trabalho feminino."
       },
       {
-        question: "6. Quais outras causas eram defendidas por Júlia?",
+        question: "6. Quais outras causas eram defendedas por Júlia?",
         options: ["Abolição, República e Educação Feminina.", "Monarquia e censura.", "Isolamento do Brasil.", "Fim do ensino."],
         correct: 0,
         explanation: "Júlia foi uma intelectual engajada nas causas progressistas."
@@ -815,7 +850,7 @@
         currentQ++;
         if (currentQ < quizData.length) renderQuestion();
         else showResults();
-      }, 1500); // Ajustado para 1.5s para ser mais dinâmico
+      }, 1500);
     }
 
     function showResults() {
